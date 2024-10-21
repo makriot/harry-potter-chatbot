@@ -13,5 +13,5 @@ docker run -d --name chat chat
 ``` 
 - Run our Harry Potter model:
 ```bash
-docker exec -it chat ollama run hf.co/makriot/
+docker exec -it chat ollama run hf.co/makriot/model
 ```
