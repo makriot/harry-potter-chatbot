@@ -33,9 +33,9 @@ prereqs:
 	@echo "Completed preprocessing dependencies installation"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
-		@echo "Installing ollama for LLM inference" \
-		@curl -fsSL https://ollama.com/install.sh | sh \
-		@echo "Ollama installed!" \
+		@echo "Installing ollama for LLM inference"; \
+		@curl -fsSL https://ollama.com/install.sh | sh; \
+		@echo "Ollama installed!"; \
 	fi
 
 	@echo "Installing postprocessing dependencies"
@@ -51,9 +51,9 @@ build:
 	@echo "Compiled preprocessing and created a binary file"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
-		@echo "Compiling processing and creating a binary file" \
-		./entrypoint.sh \
-		@echo "Compiled processing and created a binary file" \
+		@echo "Compiling processing and creating a binary file"; \
+		./entrypoint.sh; \
+		@echo "Compiled processing and created a binary file"; \
 	fi
 
 	@echo "Compiling postprocessing and creating a binary file"
