@@ -1,0 +1,30 @@
+name: building-checking
+run-name: ${{ github.actor }} is building software
+on:
+     push:
+       branches: [ main ]
+     pull_request:
+       branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install prereqs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          sudo make prereqs RUN_OLLAMA=0
+      - name: Build
+        run: |
+          sudo chmod +x entrypoint.sh
+          sudo make build RUN_OLLAMA=0
+
+  # run-tests:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Run tests
+  #       run: |
+  #         python3 run_tests.py
