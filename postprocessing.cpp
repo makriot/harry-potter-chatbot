@@ -14,11 +14,24 @@ void textToImage(const std::string& inputPath, const std::string& outputPath) {
     std::ifstream file(inputPath);
     std::string text((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 
+    const int line_length = 80;  // Approximate max characters per line
+    int lines = 0;
+    size_t i = 0;
+    while (i < text.length()) {
+        size_t curr_line_size = line_length;
+        for (size_t k = 0; k < line_length; k++) {
+            if (text[i + k] == '\n') {
+                curr_line_size = k + 1;
+                break;
+            }
+        }
+        i += curr_line_size;
+        ++lines;
+    }
     // Set up image parameters
     const int font_size = 60;  // Larger font size for more visibility
     const int padding = 10;
-    const int line_length = 80;  // Approximate max characters per line
-    const int lines = (text.length() / line_length) + 1;
+    // const int lines = (text.length() / line_length) + 1;
     const int width = 2000;  // Fixed width for consistency
     const int height = (font_size + padding) * lines + padding;
 
@@ -30,7 +43,24 @@ void textToImage(const std::string& inputPath, const std::string& outputPath) {
 
     // Draw text on the image with word wrapping
     int y_offset = padding;
+
+    i = 0;
+    while (i < text.length()) {
+        std::string line = text.substr(i, line_length);
+        size_t curr_line_size = line_length;
+        for (size_t k = 0; k < line_length; k++) {
+            if (line[k] == '\n') {
+                curr_line_size = k + 1;
+                break;
+            }
+        }
+        std::string tmp_line = line.substr(0, curr_line_size);
+        img.draw_text(padding, y_offset, tmp_line.c_str(), text_color, 0, 1, font_size);
+        y_offset += font_size + padding;
+        i += curr_line_size;
+    }
     for (size_t i = 0; i < text.length(); i += line_length) {
+
         std::string line = text.substr(i, line_length);
         img.draw_text(padding, y_offset, line.c_str(), text_color, 0, 1, font_size);
         y_offset += font_size + padding;
