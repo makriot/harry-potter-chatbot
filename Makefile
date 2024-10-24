@@ -68,3 +68,7 @@ processing:
 
 postprocessing:
 	./postprocessing
+
+test:
+	pip install pytest
+	pytest run_tests.py

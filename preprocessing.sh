@@ -21,7 +21,8 @@ fi
 
 for file in $text_pattern
 do
-    cp $file $target_pattern
+    cp $file $target_pattern;
+    rm $file
 done
 
 cd ..
