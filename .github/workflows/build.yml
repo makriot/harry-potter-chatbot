@@ -14,11 +14,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y make
-          sudo make prereqs
+          sudo make prereqs RUN_OLLAMA=0
       - name: Build
         run: |
           sudo chmod +x entrypoint.sh
-          sudo make build
+          sudo make build RUN_OLLAMA=0
 
   # run-tests:
   #   needs: build

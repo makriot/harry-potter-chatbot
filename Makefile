@@ -1,6 +1,6 @@
-# Makefile
-
 .PHONY: all prereqs build preprocessing postprocessing
+
+RUN_OLLAMA ?= 1
 
 all: prereqs build preprocessing processing postprocessing
 
@@ -18,7 +18,9 @@ prereqs:
 	apt-get install -y libleptonica-dev
 	apt-get install -y git
 	apt-get install -y cmake
-	apt-get install -y systemctl
+	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
+		apt-get install -y systemctl; \
+	fi
 	apt-get install -y pkg-config
 	apt-get install -y wget
 	apt-get install -y pip
@@ -30,9 +32,11 @@ prereqs:
 	git clone https://github.com/ggerganov/whisper.cpp.git
 	@echo "Completed preprocessing dependencies installation"
 
-	@echo "Installing ollama for LLM inference"
-	@curl -fsSL https://ollama.com/install.sh | sh
-	@echo "Ollama installed!"
+	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
+		@echo "Installing ollama for LLM inference" \
+		@curl -fsSL https://ollama.com/install.sh | sh \
+		@echo "Ollama installed!" \
+	fi
 
 	@echo "Installing postprocessing dependencies"
 	git clone https://github.com/GreycLab/CImg.git
@@ -46,9 +50,11 @@ build:
 	cd whisper.cpp && make -j
 	@echo "Compiled preprocessing and created a binary file"
 
-	@echo "Compiling processing and creating a binary file"
-	./entrypoint.sh
-	@echo "Compiled processing and created a binary file"
+	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
+		@echo "Compiling processing and creating a binary file" \
+		./entrypoint.sh \
+		@echo "Compiled processing and created a binary file" \
+	fi
 
 	@echo "Compiling postprocessing and creating a binary file"
 	g++ -std=c++17 -I./CImg/ postprocessing.cpp -o postprocessing -lX11 -lpthread -lpng
