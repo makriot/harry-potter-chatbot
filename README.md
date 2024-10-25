@@ -4,7 +4,17 @@ This is a repo for Foundations of Software Engineering project.
 Chatbot, trained on "Harry Potter" movies.
 
 To chat with model, you should put .txt or .wav files in 16kH into `input_raw` directory, then run a pipeline. Results with chatbot's answers will be in `output`. directory.
+## Quick Start on Local Machine
+- Make sure make installed
+```bash
+sudo apt-get update && sudo apt-get install -y make
+```
+- Installing all required packages and libraries, Compiling and Running the code.
+```bash
+make all
+```
 
+## Quick Start with Docker
 - Build an image with ollama:
 ```bash
 docker build -t chat .
