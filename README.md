@@ -39,8 +39,6 @@ make build
 make run
 ```
 
-.
-
 The results inside of a Docker Container are synchronised with your local machine, so you can easily access it!
 
 
