@@ -10,7 +10,7 @@ To chat with model, you should put .txt or .wav files in 16kH into `input_raw` d
 ```bash
 apt-get update && apt-get install -y make
 ```
-- Installing all required packages and libraries, Compiling and Running the code.
+- Installing all required packages and libraries, Compiling and Running the code. 
 ```bash
 make
 ```
