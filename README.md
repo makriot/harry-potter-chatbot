@@ -6,15 +6,13 @@ Chatbot, trained on "Harry Potter" movies.
 To chat with model, you should put .txt or .wav files in 16kH into `input_raw` directory, then run a pipeline. Results with chatbot's answers will be in `output` directory.
 ## Quick Start on Local Machine
 - Clone repository
-- Make sure make installed
+- Make sure make is installed
 ```bash
 apt-get update && apt-get install -y make
 ```
 - Installing all required packages and libraries, Compiling and Running the code.
 ```bash
-cd harry-potter-chatbot
-
-make all
+make
 ```
 
 ## Quick Start with Docker
