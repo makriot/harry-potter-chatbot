@@ -17,7 +17,6 @@ jobs:
           sudo make prereqs RUN_OLLAMA=0
       - name: Build
         run: |
-          sudo chmod +x entrypoint.sh
           sudo make build RUN_OLLAMA=0
 
   run-tests:
