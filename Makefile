@@ -52,10 +52,10 @@ build:
 	echo "Compiled preprocessing and created a binary file"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
-		@echo "Compiling processing and creating a binary file"; \
+		echo "Compiling processing and creating a binary file"; \
 		chmod +x entrypoint.sh; \
 		./entrypoint.sh; \
-		@echo "Compiled processing and created a binary file"; \
+		echo "Compiled processing and created a binary file"; \
 	fi
 
 	echo "Compiling postprocessing and creating a binary file"
