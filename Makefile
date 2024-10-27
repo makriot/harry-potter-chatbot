@@ -8,9 +8,8 @@ run: preprocessing processing postprocessing
 
 # Default target
 prereqs:
-	@echo "Installing common packages & dependencies"
-	apt-get install -y curl 
-	apt-get install -y vim 
+	echo "Installing common packages & dependencies"
+	apt-get install -y curl
 	apt-get install -y nano
 	apt-get install -y libpng-dev libjpeg-dev libtiff-dev zlib1g-dev
 	apt-get install -y gcc g++
@@ -26,11 +25,11 @@ prereqs:
 	apt-get install -y pip
 	apt-get install -y python3-requests
 	apt-get install -y git wget curl make build-essential
-	@echo "Common dependencies installed successfully."
+	echo "Common dependencies installed successfully."
 
-	@echo "Installing preprocessing dependencies"
+	echo "Installing preprocessing dependencies"
 	git clone https://github.com/ggerganov/whisper.cpp.git
-	@echo "Completed preprocessing dependencies installation"
+	echo "Completed preprocessing dependencies installation"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
 		@echo "Installing ollama for LLM inference"; \
@@ -38,18 +37,18 @@ prereqs:
 		@echo "Ollama installed!"; \
 	fi
 
-	@echo "Installing postprocessing dependencies"
+	echo "Installing postprocessing dependencies"
 	git clone https://github.com/GreycLab/CImg.git
 	apt-get install -y libx11-dev
 	apt-get install -y libpng-dev
-	@echo "Completed postprocessing dependencies installation"
+	echo "Completed postprocessing dependencies installation"
 
 build:
-	@echo "Compiling preprocessing and creating a binary file"
+	echo "Compiling preprocessing and creating a binary file"
 	cd whisper.cpp && sh ./models/download-ggml-model.sh base.en
 	cd whisper.cpp && make -j
 	chmod +x preprocessing.sh
-	@echo "Compiled preprocessing and created a binary file"
+	echo "Compiled preprocessing and created a binary file"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
 		@echo "Compiling processing and creating a binary file"; \
@@ -58,9 +57,9 @@ build:
 		@echo "Compiled processing and created a binary file"; \
 	fi
 
-	@echo "Compiling postprocessing and creating a binary file"
+	echo "Compiling postprocessing and creating a binary file"
 	g++ -std=c++17 -I./CImg/ postprocessing.cpp -o postprocessing -lX11 -lpthread -lpng
-	@echo "Compiled postrocessing and created a binary file"
+	echo "Compiled postrocessing and created a binary file"
 
 preprocessing:
 	./preprocessing.sh
