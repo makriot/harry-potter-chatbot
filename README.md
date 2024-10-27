@@ -40,6 +40,7 @@ make run
 ```
 
 The results inside of a Docker Container are synchronised with your local machine, so you can easily access it!
+If you face troubles, you can see an [example](https://docs.google.com/document/d/1tmJe3JeOYnpJrmpp5Q5EJQRtc8e-bT2HwHdDN08ftX0/edit?usp=sharing) of running pipeline.
 
 
 <!-- - Now we need to build our binaries and install our model:
