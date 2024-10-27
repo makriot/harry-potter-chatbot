@@ -48,10 +48,12 @@ build:
 	@echo "Compiling preprocessing and creating a binary file"
 	cd whisper.cpp && sh ./models/download-ggml-model.sh base.en
 	cd whisper.cpp && make -j
+	chmod +x preprocessing.sh
 	@echo "Compiled preprocessing and created a binary file"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
 		@echo "Compiling processing and creating a binary file"; \
+		chmod +x entrypoint.sh; \
 		./entrypoint.sh; \
 		@echo "Compiled processing and created a binary file"; \
 	fi

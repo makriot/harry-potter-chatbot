@@ -9,6 +9,4 @@ WORKDIR /app
 
 COPY Makefile preprocessing.sh postprocessing.cpp processing.py entrypoint.sh ./
 
-RUN chmod +x entrypoint.sh && chmod +x preprocessing.sh 
-
 RUN make prereqs
