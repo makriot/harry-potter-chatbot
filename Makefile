@@ -1,10 +1,11 @@
-.PHONY: all prereqs build preprocessing postprocessing
+.PHONY: all run prereqs build preprocessing postprocessing
 
 RUN_OLLAMA ?= 1
 
 all: prereqs build preprocessing processing postprocessing
 
 run: preprocessing processing postprocessing
+
 
 # Default target
 prereqs:
@@ -32,9 +33,9 @@ prereqs:
 	echo "Completed preprocessing dependencies installation"
 
 	if [ "$(RUN_OLLAMA)" -eq 1 ]; then \
-		@echo "Installing ollama for LLM inference"; \
-		@curl -fsSL https://ollama.com/install.sh | sh; \
-		@echo "Ollama installed!"; \
+		echo "Installing ollama for LLM inference"; \
+		curl -fsSL https://ollama.com/install.sh | sh; \
+		echo "Ollama installed!"; \
 	fi
 
 	echo "Installing postprocessing dependencies"
