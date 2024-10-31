@@ -1,6 +1,6 @@
 # FSE project group 5
 
-This is a repo for Foundations of Software Engineering project.
+This is a repo for Foundations of Software Engineering for AI project.
 Chatbot, trained on "Harry Potter" movies.
 
 To chat with model, you should put .txt or .wav files in 16kH into `input_raw` directory, then run a pipeline. Results with chatbot's answers will be in `output` directory.
@@ -41,6 +41,8 @@ make run
 
 The results inside of a Docker Container are synchronised with your local machine, so you can easily access it!
 If you face troubles, you can see an [example](https://docs.google.com/document/d/1tmJe3JeOYnpJrmpp5Q5EJQRtc8e-bT2HwHdDN08ftX0/edit?usp=sharing) of running pipeline.
+
+LLama 3.2 was trained with this code: [link](https://www.kaggle.com/code/tokhchukovdanil/harry-potter-chatbot-llama-3-2-1b).
 
 
 <!-- - Now we need to build our binaries and install our model:
