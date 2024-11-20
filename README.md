@@ -40,7 +40,7 @@ make run
 ```
 
 The results inside of a Docker Container are synchronised with your local machine, so you can easily access it!
-If you face troubles, you can see an [example](https://docs.google.com/document/d/1tmJe3JeOYnpJrmpp5Q5EJQRtc8e-bT2HwHdDN08ftX0/edit?usp=sharing) of running pipeline.
+If you face troubles, you can see an [example](https://docs.google.com/document/d/1zbvqpISPHD3WelM_D59OBPc21YzwXVGRkx0QPJeXwwk/edit?usp=sharing) of running pipeline.
 
 LLama 3.2 was trained with this code: [link](https://www.kaggle.com/code/tokhchukovdanil/harry-potter-chatbot-llama-3-2-1b).
 
