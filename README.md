@@ -1,5 +1,7 @@
 # FSE project group 5
 
+<img src="/.github/images/harry-potter-orig.jpg" width="1100"  />
+
 This is a repo for Foundations of Software Engineering for AI project.
 Chatbot, trained on "Harry Potter" movies.
 
