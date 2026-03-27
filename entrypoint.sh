@@ -3,4 +3,4 @@
 systemctl daemon-reload 
 systemctl enable ollama 
 systemctl restart ollama 
-ollama pull hf.co/makriot/model
+ollama pull hf.co/makriot/harry-potter-movies-llama
