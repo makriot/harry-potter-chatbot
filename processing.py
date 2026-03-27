@@ -5,7 +5,7 @@ import json
 input_folder = './input'
 output_folder = './output_raw'
 model_endpoint = 'http://localhost:11434/api/generate'
-custom_model = 'hf.co/makriot/model:latest'  # Replace with your actual model path
+custom_model = 'hf.co/makriot/harry-potter-movies-llama:latest'  # Replace with your actual model path
 
 # Ensure output folder exists
 os.makedirs(output_folder, exist_ok=True)
